@@ -91,6 +91,11 @@ def buildPing(destAddr, timeout):
 
 
 def trimTimes(times):
+    """
+    >>> trimTimes([1, 3, 0, 4, 5, 0, 9])
+    [1, 3, 4, 5, 9]
+    # python3 -m doctest -v icmpPing.py
+    """
     temp = []
     for time in times:
         if time is not 0:
@@ -118,7 +123,7 @@ def ping(host, pings=10, timeout=1):
                     host, str(seq), str(round(times[seq], 3))
                 )
             )
-        sleep(1)  # one second
+        sleep(1)
 
     print(times)
     times = trimTimes(times)
