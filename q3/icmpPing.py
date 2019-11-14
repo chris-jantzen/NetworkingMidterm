@@ -113,12 +113,12 @@ def ping(host, pings=10, timeout=1):
         sleep(1)
 
     times = list(filter(lambda time: time != 0, times))
-    print("\n----- {} ping statistics -----".format(host))
+    print("\n--- {} ping statistics ---".format(host))
     print("Min time: {} ms".format(str(round(min(times), 3))))
     print("Max time: {} ms".format(str(round(max(times), 3))))
     print("Avg time: {} ms".format(str(round(sum(times) / len(times), 3))))
     print("Stddev time: {} ms".format(str(round(stdev(times), 3))))
-    print("Packets lost: {}".format(str(packets_lost)))
+    print("Packets lost: {} (% = {})".format(str(packets_lost), str(packets_lost/pings)))
     return
 
 
