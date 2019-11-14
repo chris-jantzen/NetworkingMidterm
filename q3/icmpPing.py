@@ -90,19 +90,6 @@ def buildPing(destAddr, timeout):
     return delay
 
 
-def trimTimes(times):
-    """
-    >>> trimTimes([1, 3, 0, 4, 5, 0, 9])
-    [1, 3, 4, 5, 9]
-    # python3 -m doctest -v icmpPing.py
-    """
-    temp = []
-    for time in times:
-        if time is not 0:
-            temp.append(time)
-    return temp
-
-
 def ping(host, pings=10, timeout=1):
     dest = gethostbyname(host)
     print("Pinging {}\n".format(dest))
@@ -125,8 +112,7 @@ def ping(host, pings=10, timeout=1):
             )
         sleep(1)
 
-    print(times)
-    times = trimTimes(times)
+    times = list(filter(lambda time: time != 0, times))
     print("\n----- {} ping statistics -----".format(host))
     print("Min time: {} ms".format(str(round(min(times), 3))))
     print("Max time: {} ms".format(str(round(max(times), 3))))
