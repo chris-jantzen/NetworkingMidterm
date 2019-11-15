@@ -142,6 +142,7 @@ def main():
         print("Too many parameters")
         print('Usage: python3 icmpPing.py "Host" NumberOfPings')
         print('Example: python3 icmpPing.py "8.8.8.8" 10')
+        return
 
 
 if __name__ == "__main__":
