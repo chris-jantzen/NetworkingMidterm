@@ -12,7 +12,7 @@ gmail_password = email_credentials["email_password"]
 # Validate email address is real
 def check(email):
     regex = "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-    return re.search(regex, email):
+    return re.search(regex, email)
 
 
 if not check(argv[1]):
