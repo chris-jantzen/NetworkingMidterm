@@ -19,7 +19,7 @@ if not check(argv[1]):
     print("Not a valid email address")
     exit(1)
 
-to = argv[1]  # "cjantzen22@gmail.com"
+to = argv[1]
 subject = "Test of email message"
 body = "Hello, this is a test message sending email from Python"
 
