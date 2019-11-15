@@ -102,11 +102,11 @@ def ping(host, pings=10, timeout=1):
         if isinstance(delay, str):
             times.append(0)
             packets_lost += 1
-            print("64 Bytes to {0}: icmp_seq={1} Packet Lost".format(host, str(seq)))
+            print("Pinging {0}: icmp_seq={1} Packet Lost".format(host, str(seq)))
         else:
             times.append(buildPing(dest, timeout) * 1000)
             print(
-                "64 Bytes to {0}: icmp_seq={1} Elapsed Time(RTT)={2} ms".format(
+                "Pinging {0}: icmp_seq={1} Elapsed Time(RTT)={2} ms".format(
                     host, str(seq), str(round(times[seq], 3))
                 )
             )
@@ -118,7 +118,9 @@ def ping(host, pings=10, timeout=1):
     print("Max time: {} ms".format(str(round(max(times), 3))))
     print("Avg time: {} ms".format(str(round(sum(times) / len(times), 3))))
     print("Stddev time: {} ms".format(str(round(stdev(times), 3))))
-    print("Packets lost: {} (% = {})".format(str(packets_lost), str(packets_lost/pings)))
+    print(
+        "Packets lost: {} (% = {})".format(str(packets_lost), str(packets_lost / pings))
+    )
     return
 
 
