@@ -102,12 +102,12 @@ def ping(host, pings=10, timeout=1):
         if isinstance(delay, str):
             times.append(0)
             packets_lost += 1
-            print("Pinging {0}: icmp_seq={1} Packet Lost".format(host, str(seq)))
+            print("Pinging {0}: icmp_seq={1} Packet Lost".format(dest, str(seq)))
         else:
             times.append(buildPing(dest, timeout) * 1000)
             print(
                 "Pinging {0}: icmp_seq={1} Elapsed Time(RTT)={2} ms".format(
-                    host, str(seq), str(round(times[seq], 3))
+                    dest, str(seq), str(round(times[seq], 3))
                 )
             )
         sleep(1)
